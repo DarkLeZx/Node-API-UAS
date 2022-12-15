@@ -13,13 +13,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // (7) import routes
-const mahasiswaRoutes = require('./routes/mahasiswa')
-const dosenRoutes = require('./routes/dosen')
+const pinjamRoutes = require('./routes/pinjam')
+const pengembalianbukuR = require('./routes/pengembalianbuku')
 const authRoutes = require('./routes/auth')
 
 // (8) app.use (mendaftarkan middleware baru ke Express)
-app.use('/mahasiswa', mahasiswaRoutes)
-app.use('/dosen', dosenRoutes)
+app.use('/pengembalianbuku', pengembalianbukuR)
+app.use('/pinjam', pinjamRoutes)
 app.use('/auth',authRoutes)
 
 

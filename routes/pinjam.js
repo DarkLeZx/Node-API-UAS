@@ -1,22 +1,24 @@
 // (5) Buat router Mahasiswa
 const express = require('express')
 const router = express.Router() 
-const Peminjaman = require('../models/Peminjaman')
+const Pinjam = require('../models/Pinjam')
 const verivyToken = require('../config/verivyToken')
 // Create 
 
 router.post('/', async(req, res) => {
     // tampung input mahasiswa 
-    const peminjamanPost = new Peminjaman({
+    const pinjamPost = new Pinjam({
         nama: req.body.nama,
-        alamat: req.body.alamat
+        jurusan: req.body.jurusan,
+        npm: req.body.npm,
+        judulBuku:req.body.judulBuku
     })
 
     try {
         // simpan data 
-        const peminjaman = await peminjamanPost.save()
+        const pinjam = await pinjamPost.save()
         // response
-        res.json(peminjaman)
+        res.json(pinjam)
     } catch (error) {
         res.json({message: error})
     }
@@ -24,17 +26,17 @@ router.post('/', async(req, res) => {
 
 router.get('/',verivyToken,async(req,res)=>{
     try {
-        const peminjaman=await peminjaman.find()
-        res.json(peminjaman)
+        const pinjam=await pinjam.find()
+        res.json(pinjam)
     }
     catch(error){res.json({message:error})
     }
 })
 
-router.delete('/:peminjamanId',async(req,res)=>{
+router.delete('/:pinjamId',async(req,res)=>{
 try{
-    const peminjaman= await Peminjaman.deleteOne({_id:req.params.peminjamanId})
-    res.json(peminjaman)
+    const pinjam= await Pinjam.deleteOne({_id:req.params.pinjamId})
+    res.json(pinjam)
     }
     catch(error){
         res.json({
@@ -43,15 +45,17 @@ try{
     }
 })
 
-router.put('/:peminjamanId', async(req,res)=>{
+router.put('/:pinjamId', async(req,res)=>{
     const data={
         nama: req.body.nama,
-        alamat: req.body.alamat
+        jurusan: req.body.jurusan,
+        npm: req.body.npm,
+        judulBuku:req.body.judulBuku
     }
   
     try{
-        const peminjaman =await Peminjaman.updateOne({_id:req.params.peminjamanId}, data)
-        res.json(peminjaman)
+        const pinjam =await Pinjam.updateOne({_id:req.params.pinjamId}, data)
+        res.json(pinjam)
     }
     catch(error){
         res.json({

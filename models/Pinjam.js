@@ -1,7 +1,7 @@
 // (4) Buat Schema Mahasiswa
 const mongoose = require('mongoose')
 
-const PengembalianSchema = mongoose.Schema({
+const PinjamSchema = mongoose.Schema({
     // Buat Schema data
     nama: {
         type: String,
@@ -25,4 +25,4 @@ const PengembalianSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Pengembalian', PengembalianSchema)
+module.exports = mongoose.model('Pinjam', PinjamSchema)

@@ -1,15 +1,23 @@
 // (4) Buat Schema Mahasiswa
 const mongoose = require('mongoose')
 
-const PeminjamanSchema = mongoose.Schema({
+const PengembalianbukuSchema = mongoose.Schema({
     // Buat Schema data
     nama: {
         type: String,
         required: true
     },
-    alamat: {
+    jurusan: {
         type: String,
         required: true
+    },
+    npm:{
+        type: String,
+        required:true
+    },
+    judulBuku:{
+        type:String,
+        required:true
     },
     createdAt: {
         type: Date,
@@ -17,4 +25,4 @@ const PeminjamanSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Peminjaman', PeminjamanSchema)
+module.exports = mongoose.model('Pengembalianbuku', PengembalianbukuSchema)

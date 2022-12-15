@@ -1,14 +1,14 @@
 // (5) Buat router dosen
 
 const express = require('express')
-const Pengembalian = require('../models/Pengembalian')
+const Pengembalianbuku = require('../models/Pengembalianbuku')
 const router = express.Router() 
-const Pengembalian = require('../models/Pengembalian')
+
 
 // Create 
 router.post('/', async(req, res) => {
     // tampung input dosen 
-    const pengembalianPost = new Pengembalian({
+    const pengembalianbukuPost = new Pengembalianbuku({
         nama: req.body.nama,
         jurusan: req.body.jurusan,
         npm: req.body.npm,
@@ -17,9 +17,9 @@ router.post('/', async(req, res) => {
 
     try {
         // simpan data 
-        const Pengembalian = await pengembalianPost.save()
+        const Pengembalianbuku = await pengembalianbukuPost.save()
         // response
-        res.json(pengembalian)
+        res.json(pengembalianbuku)
     } catch (error) {
         res.json({message: error})
     }
