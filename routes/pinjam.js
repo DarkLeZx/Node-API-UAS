@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router() 
 const Pinjam = require('../models/Pinjam')
-const verivyToken = require('../config/verivyToken')
+
 // Create 
 
 router.post('/', async(req, res) => {
@@ -24,14 +24,7 @@ router.post('/', async(req, res) => {
     }
 })
 
-router.get('/',verivyToken,async(req,res)=>{
-    try {
-        const pinjam=await pinjam.find()
-        res.json(pinjam)
-    }
-    catch(error){res.json({message:error})
-    }
-})
+
 
 router.delete('/:pinjamId',async(req,res)=>{
 try{

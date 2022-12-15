@@ -15,12 +15,12 @@ app.use(bodyParser.json());
 // (7) import routes
 const pinjamRoutes = require('./routes/pinjam')
 const pengembalianbukuR = require('./routes/pengembalianbuku')
-const authRoutes = require('./routes/auth')
+
 
 // (8) app.use (mendaftarkan middleware baru ke Express)
 app.use('/pengembalianbuku', pengembalianbukuR)
 app.use('/pinjam', pinjamRoutes)
-app.use('/auth',authRoutes)
+
 
 
 // (3) koneksi ke database mongodb
