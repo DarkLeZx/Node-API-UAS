@@ -1,22 +1,22 @@
 // (5) Buat router Mahasiswa
 const express = require('express')
 const router = express.Router() 
-const Mahasiswa = require('../models/Mahasiswa')
+const Peminjaman = require('../models/Peminjaman')
 const verivyToken = require('../config/verivyToken')
 // Create 
 
 router.post('/', async(req, res) => {
     // tampung input mahasiswa 
-    const mahasiswaPost = new Mahasiswa({
+    const peminjamanPost = new Peminjaman({
         nama: req.body.nama,
         alamat: req.body.alamat
     })
 
     try {
         // simpan data 
-        const mahasiswa = await mahasiswaPost.save()
+        const peminjaman = await peminjamanPost.save()
         // response
-        res.json(mahasiswa)
+        res.json(peminjaman)
     } catch (error) {
         res.json({message: error})
     }
@@ -24,17 +24,17 @@ router.post('/', async(req, res) => {
 
 router.get('/',verivyToken,async(req,res)=>{
     try {
-        const mahasiswa=await Mahasiswa.find()
-        res.json(mahasiswa)
+        const peminjaman=await peminjaman.find()
+        res.json(peminjaman)
     }
     catch(error){res.json({message:error})
     }
 })
 
-router.delete('/:mahasiswaId',async(req,res)=>{
+router.delete('/:peminjamanId',async(req,res)=>{
 try{
-    const mahasiswa= await Mahasiswa.deleteOne({_id:req.params.mahasiswaId})
-    res.json(mahasiswa)
+    const peminjaman= await Peminjaman.deleteOne({_id:req.params.peminjamanId})
+    res.json(peminjaman)
     }
     catch(error){
         res.json({
@@ -43,15 +43,15 @@ try{
     }
 })
 
-router.put('/:mahasiswaId', async(req,res)=>{
+router.put('/:peminjamanId', async(req,res)=>{
     const data={
         nama: req.body.nama,
         alamat: req.body.alamat
     }
   
     try{
-        const mahasiswa =await Mahasiswa.updateOne({_id:req.params.mahasiswaId}, data)
-        res.json(mahasiswa)
+        const peminjaman =await Peminjaman.updateOne({_id:req.params.peminjamanId}, data)
+        res.json(peminjaman)
     }
     catch(error){
         res.json({
