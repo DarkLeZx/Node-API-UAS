@@ -19,7 +19,7 @@ const PengembalianbukuSchema = mongoose.Schema({
         type: String,
         required:true
     },
-    judulBuku:{
+    judulbuku:{
         type:String,
         required:true
     },
