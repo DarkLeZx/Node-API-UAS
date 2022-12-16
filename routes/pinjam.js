@@ -25,7 +25,14 @@ router.post('/', async(req, res) => {
     }
 })
 
-
+router.get('/',async(req,res)=>{
+    try {
+        const pinjam=await Pinjam.find()
+        res.json(pinjam)
+    }
+    catch(error){res.json({message:error})
+    }
+})
 
 router.delete('/:pinjamId',async(req,res)=>{
 try{
