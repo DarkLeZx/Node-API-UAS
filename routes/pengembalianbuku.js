@@ -13,7 +13,7 @@ router.post('/', async(req, res) => {
         jurusan: req.body.jurusan,
         npm: req.body.npm,
         tanggal_pengembalian:req.body.tanggal_pengembalian,
-        judulBuku:req.body.judulBuku
+        judulbuku:req.body.judulbuku
     })
 
     try {
@@ -53,7 +53,7 @@ router.put('/:pengembalianbukuId', async(req,res)=>{
         jurusan: req.body.jurusan,
         npm: req.body.npm,
         tanggal_pengembalian:req.body.tanggal_pengembalian,
-        judulBuku:req.body.judulBuku
+        judulbuku:req.body.judulbuku
     }
   
     try{
