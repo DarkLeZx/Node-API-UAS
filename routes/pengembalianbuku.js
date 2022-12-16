@@ -18,7 +18,7 @@ router.post('/', async(req, res) => {
 
     try {
         // simpan data 
-        const Pengembalianbuku = await pengembalianbukuPost.save()
+        const pengembalianbuku = await pengembalianbukuPost.save()
         // response
         res.json(pengembalianbuku)
     } catch (error) {
