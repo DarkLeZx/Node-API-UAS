@@ -1,4 +1,4 @@
-// (4) Buat Schema Mahasiswa
+
 const mongoose = require('mongoose')
 
 const PinjamSchema = mongoose.Schema({
@@ -15,10 +15,15 @@ const PinjamSchema = mongoose.Schema({
         type: String,
         required:true
     },
-    judulBuku:{
+    tanggal_pinjam:{
+        type :String,
+        required:true
+    },
+    judulbuku:{
         type:String,
         required:true
     },
+   
     createdAt: {
         type: Date,
         default: Date.now

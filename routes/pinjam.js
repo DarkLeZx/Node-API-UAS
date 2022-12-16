@@ -11,7 +11,8 @@ router.post('/', async(req, res) => {
         nama: req.body.nama,
         jurusan: req.body.jurusan,
         npm: req.body.npm,
-        judulBuku:req.body.judulBuku
+        tanggal_pinjam:req.body.tanggal_pinjam,
+        judulbuku:req.body.judulbuku
     })
 
     try {
