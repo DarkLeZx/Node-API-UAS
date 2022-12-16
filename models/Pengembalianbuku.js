@@ -15,6 +15,10 @@ const PengembalianbukuSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    tanggal_pengembalian:{
+        type: String,
+        required:true
+    },
     judulBuku:{
         type:String,
         required:true

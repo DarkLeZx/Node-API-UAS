@@ -12,6 +12,7 @@ router.post('/', async(req, res) => {
         nama: req.body.nama,
         jurusan: req.body.jurusan,
         npm: req.body.npm,
+        tanggal_pengembalian:req.body.tanggal_pengembalian,
         judulBuku:req.body.judulBuku
     })
 
@@ -24,5 +25,47 @@ router.post('/', async(req, res) => {
         res.json({message: error})
     }
 })
+
+router.get('/',async(req,res)=>{
+    try {
+        const pengembalianbuku=await Pengembalianbuku.find()
+        res.json(pengembalianbuku)
+    }
+    catch(error){res.json({message:error})
+    }
+})
+
+router.delete('/:pengembalianbukuId',async(req,res)=>{
+try{
+    const pengembalianbuku= await Pengembalianbuku.deleteOne({_id:req.params.pengembalianbukuId})
+    res.json(pengembalianbuku)
+    }
+    catch(error){
+        res.json({
+            message:error
+        })
+    }
+})
+
+router.put('/:pengembalianbukuId', async(req,res)=>{
+    const data={
+        nama: req.body.nama,
+        jurusan: req.body.jurusan,
+        npm: req.body.npm,
+        tanggal_pengembalian:req.body.tanggal_pengembalian,
+        judulBuku:req.body.judulBuku
+    }
+  
+    try{
+        const pengembalianbuku =await Pengembalianbuku.updateOne({_id:req.params.pengembalianbukuId}, data)
+        res.json(pengembalianbuku)
+    }
+    catch(error){
+        res.json({
+            message:error
+        })
+    }
+})
+
 
 module.exports = router
